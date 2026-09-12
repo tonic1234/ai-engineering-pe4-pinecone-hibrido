@@ -1,0 +1,72 @@
+[
+  {
+    "seccion": "asyncio",
+    "categoria": "concurrencia",
+    "texto": "El event loop de asyncio reparte el trabajo entre corrutinas. Cuando una corrutina llega a un await y queda esperando la red, el loop avanza con otra tarea. Es concurrencia cooperativa, no paralelismo real. El bloqueo del loop ocurre cuando se llama a una funcion sincrona costosa dentro de una funcion async, por ejemplo time.sleep en lugar de await asyncio.sleep; eso congela a todos los usuarios."
+  },
+  {
+    "seccion": "gather",
+    "categoria": "concurrencia",
+    "texto": "asyncio.gather lanza varias corrutinas al mismo tiempo y devuelve sus resultados. Conviene usar return_exceptions=True para que el error de una tarea no cancele las demas. Si se disparan cientos de llamadas simultaneas contra una API se recibe un error 429 de rate limit; la solucion es un asyncio.Semaphore que limite cuantas corrutinas corren a la vez."
+  },
+  {
+    "seccion": "lcel",
+    "categoria": "orquestacion",
+    "texto": "LCEL es el operador pipe de LangChain. Una cadena se compone como prompt | model | parser y cada eslabon recibe la salida del anterior. El protocolo Runnable aporta invoke, ainvoke, batch y stream. En aplicaciones web se usa ainvoke de forma asincrona."
+  },
+  {
+    "seccion": "structured_output",
+    "categoria": "validacion",
+    "texto": "with_structured_output obliga al modelo a devolver un objeto que cumpla un esquema Pydantic. Hay tres validaciones: la sintactica verifica que el JSON sea parseable, la estructural que esten todos los campos y la semantica que los valores tengan sentido de negocio, esa ultima la define el desarrollador con restricciones como min_length o validadores."
+  },
+  {
+    "seccion": "retry",
+    "categoria": "resiliencia",
+    "texto": "with_retry reintenta errores transitorios como un 429 o un corte de red usando backoff exponencial con jitter. No se deben reintentar errores permanentes: si el prompt esta mal disenado, reintentar no lo arregla y solo gasta tokens."
+  },
+  {
+    "seccion": "chunking",
+    "categoria": "rag",
+    "texto": "El chunking parte los documentos en fragmentos. Chunks muy pequenos pierden el contexto de la frase y chunks muy grandes diluyen el significado del embedding. Un valor tipico es entre 500 y 800 tokens con un solape del diez por ciento para no cortar ideas al medio."
+  },
+  {
+    "seccion": "chromadb",
+    "categoria": "rag",
+    "texto": "ChromaDB es una base vectorial local persistente. Se debe usar el mismo modelo de embeddings para indexar y para consultar, porque si se mezclan modelos la distancia vectorial no significa nada. El top_k define cuantos fragmentos se le pasan al modelo y se recomienda entre tres y cinco."
+  },
+  {
+    "seccion": "pinecone",
+    "categoria": "rag",
+    "texto": "Pinecone Serverless es una base vectorial en la nube. La dimension del indice debe coincidir con la del modelo de embeddings: text-embedding-3-small usa 1536. Los namespaces separan conjuntos de datos dentro de un mismo indice para que la busqueda no sea ruidosa."
+  },
+  {
+    "seccion": "hybrid",
+    "categoria": "rag",
+    "texto": "El recuperador hibrido combina busqueda semantica por vectores con busqueda lexica BM25. La semantica entiende el significado pero falla con nombres propios y siglas, mientras que BM25 acierta justamente en esos casos porque busca palabras exactas. El EnsembleRetriever combina ambos rankings con pesos."
+  },
+  {
+    "seccion": "evaluacion",
+    "categoria": "metricas",
+    "texto": "La evaluacion de un sistema de recuperacion se hace con un golden set de preguntas donde se conoce el documento correcto. Recall@k mide en cuantas preguntas el documento correcto aparecio dentro de los k recuperados y Precision@k mide que proporcion de los k recuperados era realmente util."
+  },
+  {
+    "seccion": "langgraph",
+    "categoria": "agentes",
+    "texto": "LangGraph modela un agente como un grafo de estados. El estado es inmutable y se actualiza mediante reducers, tipicamente operator.add para acumular la lista de mensajes. StateGraph conecta el nodo del modelo con el nodo de herramientas mediante una arista condicional tools_condition."
+  },
+  {
+    "seccion": "checkpointer",
+    "categoria": "agentes",
+    "texto": "El checkpointer de LangGraph guarda el estado del grafo y permite la persistencia. SqliteSaver es la opcion local para desarrollo. Al pasar un thread_id el agente recuerda las interacciones previas dentro de la misma sesion de razonamiento."
+  },
+  {
+    "seccion": "react",
+    "categoria": "agentes",
+    "texto": "El ciclo ReAct alterna razonamiento y accion. El agente decide que herramienta usar segun el prompt del usuario y el docstring de la herramienta. Si la herramienta devuelve un error el agente puede reintentar o pedir aclaraciones. Siempre hay que definir un recursion_limit para evitar bucles infinitos y costos inesperados."
+  },
+  {
+    "seccion": "tools",
+    "categoria": "agentes",
+    "texto": "Las herramientas de un agente se definen con el decorador tool de LangChain. El docstring es fundamental porque el modelo decide que herramienta usar basandose unicamente en esa descripcion. Un docstring vago es la causa mas comun de que el agente no use la herramienta esperada."
+  }
+]

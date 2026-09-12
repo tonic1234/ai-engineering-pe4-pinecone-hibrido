@@ -1,0 +1,10 @@
+[
+  {"pregunta": "¿Qué pasa si llamo a time.sleep dentro de una función async?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Cómo limito cuántas llamadas simultáneas hago contra una API?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Qué hace with_retry y para qué tipo de errores sirve?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Por qué hay que usar el mismo modelo de embeddings para indexar y consultar?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Qué mide Recall@k en un sistema de recuperación?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Para qué sirve un checkpointer como SqliteSaver?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Por qué el docstring de una herramienta es tan importante en un agente?", "fuente_esperada": "documentacion"},
+  {"pregunta": "¿Qué ventaja tiene BM25 sobre la búsqueda vectorial?", "fuente_esperada": "documentacion"}
+]
