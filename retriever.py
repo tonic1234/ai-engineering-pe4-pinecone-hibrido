@@ -20,10 +20,14 @@ import logging
 import os
 from typing import Dict, List
 
+from dotenv import load_dotenv
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 
 from ingest import chunk_documents, load_dataset
+
+# Cargo el .env para que PINECONE_API_KEY esté disponible si se corre el script solo.
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
