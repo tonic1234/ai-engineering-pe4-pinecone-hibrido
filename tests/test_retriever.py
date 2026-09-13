@@ -1,6 +1,6 @@
 """tests/test_retriever.py — Pruebas del recuperador y de la evaluación.
 
-APUNTE: BM25 corre 100% local, así que puedo probar el recuperador y las métricas sin
+Detalle: BM25 corre 100% local, así que puedo probar el recuperador y las métricas sin
 Pinecone y sin API key. Lo que verifico:
   1. Que el chunking conserve la metadata (fuente/categoría) — es lo que después permite
      comparar contra el golden set.

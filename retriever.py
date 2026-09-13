@@ -1,6 +1,6 @@
 """retriever.py — Recuperador híbrido: búsqueda vectorial (Pinecone) + léxica (BM25).
 
-APUNTE DE CLASE (lo más interesante de esta pre-entrega):
+Ojo (lo más interesante del recuperador):
 La búsqueda semántica es muy buena entendiendo el significado ("¿cuánto puedo descansar
 por año?" ≈ "vacaciones"), pero se le escapan los términos exactos: siglas, nombres
 propios, códigos. BM25 es lo contrario: busca coincidencias de PALABRAS literales, y

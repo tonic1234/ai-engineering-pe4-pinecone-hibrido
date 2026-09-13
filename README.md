@@ -4,7 +4,7 @@ Pre-entrega 4 del curso **AI Engineering** (Coderhouse).
 Ingesta a **Pinecone Serverless** con metadata, **recuperador híbrido** (BM25 + vectorial)
 y evaluación con **Precision@5 / Recall@5** sobre un *golden set*.
 
-## Qué hay adentro
+## Contenido del repo
 
 | Archivo | Qué hace |
 |---|---|
@@ -69,7 +69,7 @@ python evaluate.py          # imprime Recall@5 y Precision@5
 Es normal que la precisión sea baja: al traer 5 fragmentos y ser 1 el correcto, la
 precisión es 1/5 = 20 %. Lo que se mira es que el **recall** sea alto.
 
-## Decisiones de diseño
+## Criterios de diseño
 
 - **Embeddings locales**: `sentence-transformers/all-MiniLM-L6-v2` (384 dimensiones). No
   requieren API key ni cuestan nada, y corren en la máquina.

@@ -1,6 +1,6 @@
 """setup_index.py — Crea (si hace falta) el índice Serverless de Pinecone.
 
-APUNTE DE CLASE:
+Ojo:
 Dos cosas que hay que cuidar acá y que son las que más errores causan:
   1. La DIMENSIÓN del índice tiene que coincidir con la del modelo de embeddings. Como
      ahora uso un modelo local (all-MiniLM-L6-v2), la dimensión es 384, NO 1536 (ese

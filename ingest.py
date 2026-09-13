@@ -1,6 +1,6 @@
 """ingest.py — Ingesta de documentos hacia Pinecone con metadata.
 
-APUNTE DE CLASE:
+Nota:
 Acá el punto es no subir texto pelado. Cada vector viaja con metadata: de dónde salió
 (fuente), su categoría y el índice del chunk. Esa metadata después se usa para FILTRAR la
 búsqueda y para armar las fuentes de la respuesta sin que el LLM tenga que "recordarlas".
