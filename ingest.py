@@ -38,8 +38,8 @@ CHUNK_OVERLAP = 100
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIM = 384
 
-INDEX_NAME = os.getenv("INDEX_NAME", "politicas-rag-hibrido")
-NAMESPACE = os.getenv("PINECONE_NAMESPACE", "politicas-internas")
+INDEX_NAME = os.getenv("INDEX_NAME", "dendra-rag-hibrido")
+NAMESPACE = os.getenv("PINECONE_NAMESPACE", "politicas-dendra")
 
 
 def load_dataset(data_dir: Path = DATA_DIR) -> list[Document]:

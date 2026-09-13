@@ -12,8 +12,19 @@ y evaluación con **Precision@5 / Recall@5** sobre un *golden set*.
 | `ingest.py` | Carga el dataset, lo chunkea en tokens y lo sube a Pinecone con metadata. |
 | `retriever.py` | `RAGSystem`: `EnsembleRetriever` (BM25 + vectorial) y `obtener_top_k()`. |
 | `evaluate.py` | Golden set + `evaluar()` con Precision@5 y Recall@5. |
-| `data/` | 4 políticas internas de ejemplo (.txt). |
+| `data/` | 4 políticas internas de ejemplo (.txt), tomando como dominio el de la empresa donde trabajo. |
 | `tests/` | Pruebas del chunking con metadata y de las métricas. |
+
+## Contexto del dataset
+
+Uso como dominio de ejemplo el de **Dendra**, la agencia donde trabajo: son documentos del
+tipo que existen en cualquier empresa (vacaciones, teletrabajo, seguridad, onboarding), y
+eso le da a la búsqueda híbrida siglas y términos exactos reales para probar (2FA, MDM,
+BYOD).
+
+**Importante**: el contenido de los `.txt` es **inventado** — solo imita la lógica de una
+política interna. No son las políticas reales de la empresa ni contienen datos reales de
+nadie.
 
 ## Cómo correrlo
 
@@ -38,8 +49,8 @@ python evaluate.py          # imprime Recall@5 y Precision@5
 | Variable | Descripción |
 |---|---|
 | `PINECONE_API_KEY` | Requerida para el modo nube (free tier). |
-| `INDEX_NAME` | Nombre del índice (por defecto `politicas-rag-hibrido`). |
-| `PINECONE_NAMESPACE` | Namespace dentro del índice (por defecto `politicas-internas`). |
+| `INDEX_NAME` | Nombre del índice (por defecto `dendra-rag-hibrido`). |
+| `PINECONE_NAMESPACE` | Namespace dentro del índice (por defecto `politicas-dendra`). |
 | `PINECONE_REGION` | Región del índice Serverless (por defecto `us-east-1`). |
 
 ## Ejemplo de salida de `evaluate.py`
